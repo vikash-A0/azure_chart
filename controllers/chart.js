@@ -36,9 +36,7 @@ exports.createOne = async(req,res,next) =>{
 exports.getAll = async(req,res,next) =>{
     // console.log("am in");
     try {
-        const users= await Chart.findAll({
-            limit :5,
-        });
+        const users= await Chart.findAll();
         console.log('datas Created');
         res.status(200).json(users);
     } catch (error) {
