@@ -3,8 +3,8 @@ const {MetricName,ResourceName,avg,TimeGenerated,max,min,P80,P90} = require('../
 
 
 const schema = Joi.object({
-    MetricName: Joi.string().min(2).max(20),
-    ResourceName:Joi.string().min(1).max(25),
+    MetricName: Joi.string().min(2).max(30),
+    ResourceName:Joi.string().min(1).max(40),
     avg: Joi.number(),
     TimeGenerated : Joi.date(),
     max:Joi.number(),
