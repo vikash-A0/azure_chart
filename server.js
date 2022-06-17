@@ -1,25 +1,24 @@
- const express = require("express");
- const sequelize = require('./database/db');
- const Chart = require('./models/chart');
+const express = require("express");
+const sequelize = require('./database/db');
+const Chart = require('./models/chart');
 
- var app = express();
+var app = express();
 
- app.use(express.json());
+app.use(express.json());
 
- app.use('/chart',require('./routes/chart'));
+app.use('/chart', require('./routes/chart'));
 
-
-(async () =>{
-    try{
+(async () => {
+    try {
         await sequelize.sync({
-            force : true
+            force: true
         });
         console.log('DB Connected Succesfully')
-        app.listen(2000,()=>{
+        app.listen(2000, () => {
             console.log("Server Started")
         });
     }
-    catch(e){
-        console.log('An error occured',e);
+    catch (e) {
+        console.log('An error occured', e);
     }
 })()
