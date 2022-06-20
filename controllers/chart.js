@@ -4,19 +4,9 @@ const Schema = require('../schema/validate');
 
 
 exports.createOne = async(req,res,next) =>{
-    const usermodel = {
-        MetricName: req.body['MetricName'],
-        ResourceName: req.body['ResourceName'],
-        avg:req.body['avg'],
-        TimeGenerated: req.body['TimeGenerated'],
-        max:req.body['max'],
-        min:req.body['min'],
-        P80:req.body['P80'],
-        P90:req.body['P90'],
-    };
     try{
         console.log("inside create controller")
-        const value = await Schema.validate(usermodel);
+        const value = await Schema.validate(req.body.data);
         console.log(value.error);
         if(value.error){
             res.status(500).json({message: "invalid entry"});
